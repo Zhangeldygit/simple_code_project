@@ -1,4 +1,4 @@
-part of '../screen_persons_list.dart';
+part of '../persons_list_screen.dart';
 
 class _ListView extends StatelessWidget {
   const _ListView({

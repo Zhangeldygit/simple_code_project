@@ -3,12 +3,12 @@ import 'package:simple_code_project/constants/app_assets.dart';
 
 class UserAvatar extends StatelessWidget {
   const UserAvatar(
-      this.url, {
-        Key? key,
-        this.margin,
-        this.border,
-        this.radius = 36.0,
-      }) : super(key: key);
+    this.url, {
+    Key? key,
+    this.margin,
+    this.border,
+    this.radius = 36.0,
+  }) : super(key: key);
 
   final BoxBorder? border;
   final EdgeInsets? margin;

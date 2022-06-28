@@ -20,34 +20,42 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(total) => "Total persons: ${total}";
+  static String m0(min) => "Login must contain more than ${min} symbols";
+
+  static String m1(min) => "Password must contain more than ${min} symbols";
+
+  static String m2(total) => "Total persons: ${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alive": MessageLookupByLibrary.simpleMessage("Alive"),
         "auth": MessageLookupByLibrary.simpleMessage("Authorization"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
-        "counterValue": MessageLookupByLibrary.simpleMessage("Counter value"),
+        "create": MessageLookupByLibrary.simpleMessage("Создать"),
         "dead": MessageLookupByLibrary.simpleMessage("Dead"),
+        "dontHaveAnAccountHint":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account yet"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "findPerson": MessageLookupByLibrary.simpleMessage("Find a person"),
         "inputErrorCheckLogin":
             MessageLookupByLibrary.simpleMessage("Check login"),
         "inputErrorCheckPassword":
             MessageLookupByLibrary.simpleMessage("Check password"),
-        "inputErrorLoginIsShort": MessageLookupByLibrary.simpleMessage(
-            "Login must contain more than 3 symbols"),
-        "inputErrorPasswordIsShort": MessageLookupByLibrary.simpleMessage(
-            "Password must contain more than 8 symbols"),
-        "inputLoginAndPassword":
-            MessageLookupByLibrary.simpleMessage("Input login and password"),
+        "inputErrorLoginIsShorterThan": m0,
+        "inputErrorPasswordIsShorterThan": m1,
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "noData": MessageLookupByLibrary.simpleMessage("No data"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "personsTotal": m0,
+        "persons": MessageLookupByLibrary.simpleMessage("Persons"),
+        "personsTotal": m2,
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
-        "tryAgain": MessageLookupByLibrary.simpleMessage("Try again")
+        "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+        "wrongLoginOrPassword":
+            MessageLookupByLibrary.simpleMessage("Wrong login or password")
       };
 }

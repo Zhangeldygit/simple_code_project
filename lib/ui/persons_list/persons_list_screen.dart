@@ -3,6 +3,7 @@ import 'package:simple_code_project/constants/app_colors.dart';
 import 'package:simple_code_project/constants/app_styles.dart';
 import 'package:simple_code_project/dto/person.dart';
 import 'package:simple_code_project/generated/l10n.dart';
+import 'package:simple_code_project/widgets/app_nav_bar.dart';
 
 import 'widgets/person_grid_tile.dart';
 import 'widgets/search_field.dart';
@@ -11,19 +12,20 @@ import 'widgets/person_list_tile.dart';
 part 'widgets/_list_view.dart';
 part 'widgets/_grid_view.dart';
 
-class PersonsList extends StatefulWidget {
-  const PersonsList({Key? key}) : super(key: key);
+class PersonsListScreen extends StatefulWidget {
+  const PersonsListScreen({Key? key}) : super(key: key);
 
   @override
-  State<PersonsList> createState() => _PersonsListState();
+  State<PersonsListScreen> createState() => _PersonsListScreenState();
 }
 
-class _PersonsListState extends State<PersonsList> {
+class _PersonsListScreenState extends State<PersonsListScreen> {
   var isListView = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const AppNavBar(current: 0),
         body: Column(
           children: [
             const SearchField(),
@@ -41,7 +43,7 @@ class _PersonsListState extends State<PersonsList> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(isListView ? Icons.list : Icons.grid_view),
+                    icon: const Icon(Icons.grid_view),
                     iconSize: 28.0,
                     color: AppColors.neutral2,
                     onPressed: () {

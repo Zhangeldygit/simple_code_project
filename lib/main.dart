@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:simple_code_project/constants/app_colors.dart';
 
 import 'generated/l10n.dart';
-import 'ui/persons_list/screen_persons_list.dart';
+import 'ui/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.grey[50],
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.light,
+    const SystemUiOverlayStyle(
+      statusBarColor: AppColors.splashBackground,
+      statusBarIconBrightness: Brightness.light,
     ),
   );
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        colorSchemeSeed: AppColors.primary,
       ),
       localizationsDelegates: const [
         S.delegate,
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale('ru', 'RU'),
       supportedLocales: S.delegate.supportedLocales,
-      home: const PersonsList(),
+      home: const SplashScreen(),
     );
   }
 }
