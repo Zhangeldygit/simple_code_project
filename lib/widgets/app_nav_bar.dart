@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:simple_code_project/constants/app_assets.dart';
 import 'package:simple_code_project/constants/app_colors.dart';
-import 'package:simple_code_project/ui/persons_list/persons_list_screen.dart';
 
+import '../constants/app_assets.dart';
 import '../generated/l10n.dart';
+import '../ui/persons_list/persons_list_screen.dart';
 import '../ui/settings_screen.dart';
 
 class AppNavBar extends StatelessWidget {

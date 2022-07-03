@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:simple_code_project/constants/app_colors.dart';
-import 'package:simple_code_project/constants/app_styles.dart';
-import 'package:simple_code_project/dto/person.dart';
-import 'package:simple_code_project/generated/l10n.dart';
-import 'package:simple_code_project/widgets/app_nav_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_code_project/ui/persons_list/widgets/vmodel.dart';
 
+import '../../constants/app_colors.dart';
+import '../../constants/app_styles.dart';
+import '../../dto/person.dart';
+import '../../generated/l10n.dart';
+import '../../repo/repo_persons.dart';
+import '../../widgets/app_nav_bar.dart';
 import 'widgets/person_grid_tile.dart';
 import 'widgets/search_field.dart';
 import 'widgets/person_list_tile.dart';
@@ -12,91 +15,102 @@ import 'widgets/person_list_tile.dart';
 part 'widgets/_list_view.dart';
 part 'widgets/_grid_view.dart';
 
-class PersonsListScreen extends StatefulWidget {
+class PersonsListScreen extends StatelessWidget {
   const PersonsListScreen({Key? key}) : super(key: key);
 
-  @override
-  State<PersonsListScreen> createState() => _PersonsListScreenState();
-}
-
-class _PersonsListScreenState extends State<PersonsListScreen> {
-  var isListView = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: const AppNavBar(current: 0),
-        body: Column(
-          children: [
-            const SearchField(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      S.of(context).personsTotal(_personsList.length).toUpperCase(),
-                      style: AppStyles.s10w500.copyWith(
-                        letterSpacing: 1.5,
-                        color: AppColors.neutral2,
+        body: ChangeNotifierProvider(
+          create: (context) => PersonsListVModel(
+            repo: Provider.of<RepoPersons>(context, listen: false),
+          ),
+          builder: (context, _) {
+            final personsTotal = context.watch<PersonsListVModel>().filteredList.length;
+            return Column(
+              children: [
+                SearchField(
+                  onChanged: (value) {
+                    Provider.of<PersonsListVModel>(context, listen: false).filter(
+                      value.toLowerCase(),
+                    );
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          S.of(context).personsTotal(personsTotal).toUpperCase(),
+                          style: AppStyles.s10w500.copyWith(
+                            letterSpacing: 1.5,
+                            color: AppColors.neutral2,
+                          ),
+                        ),
                       ),
-                    ),
+                      IconButton(
+                        icon: const Icon(Icons.grid_view),
+                        iconSize: 28.0,
+                        color: AppColors.neutral2,
+                        onPressed: () {
+                          Provider.of<PersonsListVModel>(
+                            context,
+                            listen: false,
+                          ).switchView();
+                        },
+                      ),
+                    ],
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.grid_view),
-                    iconSize: 28.0,
-                    color: AppColors.neutral2,
-                    onPressed: () {
-                      setState(() {
-                        isListView = !isListView;
-                      });
+                ),
+                Expanded(
+                  child: Consumer<PersonsListVModel>(
+                    builder: (context, vmodel, _) {
+                      if (vmodel.isLoading) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            CircularProgressIndicator(),
+                          ],
+                        );
+                      }
+                      if (vmodel.errorMessage != null) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(vmodel.errorMessage!),
+                            ),
+                          ],
+                        );
+                      }
+                      if (vmodel.filteredList.isEmpty) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(S.of(context).personsListIsEmpty),
+                            ),
+                          ],
+                        );
+                      }
+                      return vmodel.isListView
+                          ? _ListView(
+                              personsList: vmodel.filteredList,
+                            )
+                          : _GridView(
+                              personsList: vmodel.filteredList,
+                            );
                     },
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: isListView
-                  ? _ListView(personsList: _personsList)
-                  : _GridView(personsList: _personsList),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
   }
 }
-
-final _list = [
-  const Person(
-    name: 'Рик Санчез',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Мужской',
-  ),
-  const Person(
-    name: 'Алан Райс',
-    species: 'Человек',
-    status: 'Dead',
-    gender: 'Мужской',
-  ),
-  const Person(
-    name: 'Саммер Смит',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Женский',
-  ),
-  const Person(
-    name: 'Морти Смит',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Мужской',
-  ),
-];
-
-final _personsList = [
-  ..._list,
-  ..._list,
-  ..._list,
-  ..._list,
-];

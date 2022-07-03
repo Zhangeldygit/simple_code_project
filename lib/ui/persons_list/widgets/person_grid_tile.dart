@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:simple_code_project/constants/app_colors.dart';
-import 'package:simple_code_project/constants/app_styles.dart';
-import 'package:simple_code_project/dto/person.dart';
-import 'package:simple_code_project/generated/l10n.dart';
-import 'package:simple_code_project/widgets/user_avatar.dart';
+
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_styles.dart';
+import '../../../dto/person.dart';
+import '../../../generated/l10n.dart';
+import '../../../widgets/user_avatar.dart';
 
 class PersonGridTile extends StatelessWidget {
   const PersonGridTile(this.person, {Key? key}) : super(key: key);

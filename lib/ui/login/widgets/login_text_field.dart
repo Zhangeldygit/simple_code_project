@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:simple_code_project/constants/app_colors.dart';
-import 'package:simple_code_project/constants/app_styles.dart';
-import 'package:simple_code_project/generated/l10n.dart';
 
 import '../../../constants/app_assets.dart';
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_styles.dart';
+import '../../../generated/l10n.dart';
 
 class LoginTextField extends StatelessWidget {
   const LoginTextField({
