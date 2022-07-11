@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_code_project/repo/repo_settings.dart';
+import 'package:simple_code_project/ui/login/login_screen.dart';
 
 import '../constants/app_assets.dart';
 import '../generated/l10n.dart';
-import '../repo/repo_settings.dart';
-import 'login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

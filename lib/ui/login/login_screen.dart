@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:simple_code_project/constants/app_assets.dart';
-import 'package:simple_code_project/constants/app_colors.dart';
-import 'package:simple_code_project/constants/app_styles.dart';
-import 'package:simple_code_project/ui/persons_list/persons_list_screen.dart';
-import 'package:simple_code_project/widgets/app_alert_dialog.dart';
-import 'package:simple_code_project/widgets/app_button_styles.dart';
 
+import '../../constants/app_assets.dart';
+import '../../constants/app_colors.dart';
+import '../../constants/app_styles.dart';
 import '../../generated/l10n.dart';
+import '../../widgets/app_alert_dialog.dart';
+import '../../widgets/app_button_styles.dart';
+import '../persons_list/persons_list_screen.dart';
 import 'widgets/login_text_field.dart';
 import 'widgets/password_text_field.dart';
 
