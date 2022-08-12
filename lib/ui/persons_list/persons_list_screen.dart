@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/persons/bloc_persons.dart';
+import '../../bloc/persons/states.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
 import '../../dto/person.dart';
@@ -68,47 +69,48 @@ class PersonsListScreen extends StatelessWidget {
             Expanded(
               child: BlocBuilder<BlocPersons, StateBlocPersons>(
                 builder: (context, state) {
-                  if (state is StatePersonsLoading) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        CircularProgressIndicator(),
-                      ],
-                    );
-                  }
-                  if (state is StatePersonsError) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          child: Text(state.error),
-                        ),
-                      ],
-                    );
-                  }
-                  if (state is StatePersonsData) {
-                    if (state.data.isEmpty) {
+                  return state.map(
+                    initial: (state) => const SizedBox.shrink(),
+                    loading: (state) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          CircularProgressIndicator(),
+                        ],
+                      );
+                    },
+                    data: (state) {
+                      if (state.data.isEmpty) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(S.of(context).personsListIsEmpty),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return ValueListenableBuilder<bool>(
+                          valueListenable: isListView,
+                          builder: (context, isListViewMode, _) {
+                            return isListViewMode
+                                ? _ListView(personsList: state.data)
+                                : _GridView(personsList: state.data);
+                          },
+                        );
+                      }
+                    },
+                    error : (state) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
-                            child: Text(S.of(context).personsListIsEmpty),
+                            child: Text(state.error),
                           ),
                         ],
                       );
-                    } else {
-                      return ValueListenableBuilder<bool>(
-                        valueListenable: isListView,
-                        builder: (context, isListViewMode, _) {
-                          return isListViewMode
-                              ? _ListView(personsList: state.data)
-                              : _GridView(personsList: state.data);
-                        },
-                      );
                     }
-                  }
-                  //если состояние любое другое
-                  return const SizedBox.shrink();
+                  );
                 },
               ),
             ),

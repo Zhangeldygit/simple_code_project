@@ -1,21 +1,15 @@
-part of 'bloc_persons.dart';
 
-abstract class StateBlocPersons {}
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class StatePersonsInitial extends StateBlocPersons {}
+import '../../dto/person.dart';
 
-class StatePersonsLoading extends StateBlocPersons {}
+part 'states.freezed.dart';
 
-class StatePersonsData extends StateBlocPersons {
-  StatePersonsData({
-    required this.data,
-  });
 
-  final List<Person> data;
-}
-
-class StatePersonsError extends StateBlocPersons {
-  StatePersonsError(this.error);
-
-  final String error;
+@freezed
+class StateBlocPersons with _$StateBlocPersons{
+  const factory StateBlocPersons.initial() = StatePersonsInitial;
+  const factory StateBlocPersons.loading() = StatePersonsLoading;
+  const factory StateBlocPersons.data({required List<Person> data}) = StatePersonsData;
+  const factory StateBlocPersons.error(String error) = StatePersonsError;
 }

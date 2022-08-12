@@ -24,10 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(min) => "Пароль должен содержать не менее ${min} символов";
 
-  static String m2(total) => "Всего персонажей: ${total}";
+  static String m2(total) => "Всего локации: ${total}";
+
+  static String m3(total) => "Всего персонажей: ${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aired": MessageLookupByLibrary.simpleMessage("Aired"),
         "alive": MessageLookupByLibrary.simpleMessage("Живой"),
         "auth": MessageLookupByLibrary.simpleMessage("Авторизация"),
         "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
@@ -46,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "inputErrorLoginIsShorterThan": m0,
         "inputErrorPasswordIsShorterThan": m1,
         "language": MessageLookupByLibrary.simpleMessage("Язык"),
+        "locations": MessageLookupByLibrary.simpleMessage("Локации"),
+        "locationsListIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Локации не найдено"),
+        "locationsTotal": m2,
         "login": MessageLookupByLibrary.simpleMessage("Логин"),
         "male": MessageLookupByLibrary.simpleMessage("Мужской"),
         "man": MessageLookupByLibrary.simpleMessage("Человек"),
@@ -55,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "persons": MessageLookupByLibrary.simpleMessage("Персонажи"),
         "personsListIsEmpty":
             MessageLookupByLibrary.simpleMessage("Персонажей не найдено"),
-        "personsTotal": m2,
+        "personsTotal": m3,
         "russian": MessageLookupByLibrary.simpleMessage("Русский"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "signIn": MessageLookupByLibrary.simpleMessage("Вход"),

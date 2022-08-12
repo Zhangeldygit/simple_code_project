@@ -4,6 +4,11 @@
 			"total": {}
 		}
 	},
+	"@locationsTotal": {
+		"placeholders": {
+			"total": {}
+		}
+	},
 	"@inputErrorLoginIsShorterThan": {
 		"placeholders": {
 			"min": {}
@@ -32,16 +37,20 @@
 	"alive": "Живой",
 	"findPerson": "Найти персонажа",
 	"personsTotal": "Всего персонажей: {total}",
+	"locationsTotal": "Всего локации: {total}",
 	"dontHaveAnAccountHint": "Ещё нет аккаунта",
 	"create": "Создать",
 	"error": "Ошибка",
 	"wrongLoginOrPassword": "Введен неверный логин или пароль",
 	"ok": "Ok",
 	"settings": "Настройки",
+	"locations": "Локации",
 	"persons": "Персонажи",
 	"man": "Человек",
 	"male": "Мужской",
 	"female": "Женский",
 	"personsListIsEmpty": "Персонажей не найдено",
-	"somethingWentWrong": "Что-то пошло не так :-("
+	"locationsListIsEmpty": "Локации не найдено",
+	"somethingWentWrong": "Что-то пошло не так :-(",
+	"aired": "Aired"
 }

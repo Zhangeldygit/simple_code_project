@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:simple_code_project/constants/app_colors.dart';
 
 import '../constants/app_assets.dart';
 import '../generated/l10n.dart';
+import '../ui/locations/locations_screen.dart';
 import '../ui/persons_list/persons_list_screen.dart';
 import '../ui/settings_screen.dart';
 
@@ -41,6 +43,10 @@ class AppNavBar extends StatelessWidget {
           label: S.of(context).persons,
         ),
         BottomNavigationBarItem(
+          icon: const Icon(Icons.share_location_sharp),
+          label: S.of(context).locations,
+        ),
+        BottomNavigationBarItem(
           icon: const Icon(Icons.settings_outlined),
           label: S.of(context).settings,
         ),
@@ -52,6 +58,11 @@ class AppNavBar extends StatelessWidget {
             (route) => false,
           );
         } else if (index == 1) {
+          Navigator.of(context).pushAndRemoveUntil(
+            _createRoute(const LocationsScreen()),
+                (route) => false,
+          );
+        } else if (index == 2) {
           Navigator.of(context).pushAndRemoveUntil(
             _createRoute(const SettingsScreen()),
             (route) => false,

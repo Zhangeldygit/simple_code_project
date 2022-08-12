@@ -24,10 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(min) => "Password must contain more than ${min} symbols";
 
-  static String m2(total) => "Total persons: ${total}";
+  static String m2(total) => "Total locations: ${total}";
+
+  static String m3(total) => "Total persons: ${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aired": MessageLookupByLibrary.simpleMessage("Премьера"),
         "alive": MessageLookupByLibrary.simpleMessage("Alive"),
         "auth": MessageLookupByLibrary.simpleMessage("Authorization"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
@@ -46,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "inputErrorLoginIsShorterThan": m0,
         "inputErrorPasswordIsShorterThan": m1,
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "locations": MessageLookupByLibrary.simpleMessage("Locations"),
+        "locationsListIsEmpty":
+            MessageLookupByLibrary.simpleMessage("No locations found"),
+        "locationsTotal": m2,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
         "man": MessageLookupByLibrary.simpleMessage("Man"),
@@ -55,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "persons": MessageLookupByLibrary.simpleMessage("Persons"),
         "personsListIsEmpty":
             MessageLookupByLibrary.simpleMessage("No persons found"),
-        "personsTotal": m2,
+        "personsTotal": m3,
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),

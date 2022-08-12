@@ -4,6 +4,11 @@
 			"total": {}
 		}
 	},
+	"@locationsTotal": {
+		"placeholders": {
+			"total": {}
+		}
+	},
 	"@inputErrorLoginIsShorterThan": {
 		"placeholders": {
 			"min": {}
@@ -32,16 +37,20 @@
 	"alive": "Alive",
 	"findPerson": "Find a person",
 	"personsTotal": "Total persons: {total}",
+	"locationsTotal": "Total locations: {total}",
 	"dontHaveAnAccountHint": "Don't have an account yet",
 	"create": "Create",
 	"error": "Error",
 	"wrongLoginOrPassword": "Wrong login or password",
 	"ok": "Ok",
 	"settings": "Settings",
+	"locations": "Locations",
 	"persons": "Persons",
 	"man": "Man",
 	"male": "Male",
 	"female": "Female",
 	"personsListIsEmpty": "No persons found",
-	"somethingWentWrong": "Something went wrong :-("
+	"locationsListIsEmpty": "No locations found",
+	"somethingWentWrong": "Something went wrong :-(",
+	"aired": "Премьера"
 }
