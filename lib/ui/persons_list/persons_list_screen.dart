@@ -28,6 +28,7 @@ class PersonsListScreen extends StatelessWidget {
         body: Column(
           children: [
             SearchField(
+              hintText: S.of(context).findPerson,
               onChanged: (value) {
                 BlocProvider.of<BlocPersons>(context).add(
                   EventPersonsFilterByName(value),

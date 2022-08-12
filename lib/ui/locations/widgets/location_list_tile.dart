@@ -61,7 +61,8 @@ class LocationListTile extends StatelessWidget {
               )
             ],
           ),
-        )
+        ),
+        const Icon(Icons.arrow_forward_ios)
       ],
     );
   }

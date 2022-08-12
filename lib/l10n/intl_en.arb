@@ -36,6 +36,7 @@
 	"dead": "Dead",
 	"alive": "Alive",
 	"findPerson": "Find a person",
+	"findLocation": "Find a location",
 	"personsTotal": "Total persons: {total}",
 	"locationsTotal": "Total locations: {total}",
 	"dontHaveAnAccountHint": "Don't have an account yet",

@@ -220,6 +220,16 @@ class S {
     );
   }
 
+  /// `Find a location`
+  String get findLocation {
+    return Intl.message(
+      'Find a location',
+      name: 'findLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Total persons: {total}`
   String personsTotal(Object total) {
     return Intl.message(

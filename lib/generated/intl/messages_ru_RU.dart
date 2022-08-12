@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "english": MessageLookupByLibrary.simpleMessage("Английский"),
         "error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "female": MessageLookupByLibrary.simpleMessage("Женский"),
+        "findLocation": MessageLookupByLibrary.simpleMessage("Найти локацию"),
         "findPerson": MessageLookupByLibrary.simpleMessage("Найти персонажа"),
         "inputErrorCheckLogin":
             MessageLookupByLibrary.simpleMessage("Проверьте логин"),

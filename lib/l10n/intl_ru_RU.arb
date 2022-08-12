@@ -36,6 +36,7 @@
 	"dead": "Мертвый",
 	"alive": "Живой",
 	"findPerson": "Найти персонажа",
+	"findLocation": "Найти локацию",
 	"personsTotal": "Всего персонажей: {total}",
 	"locationsTotal": "Всего локации: {total}",
 	"dontHaveAnAccountHint": "Ещё нет аккаунта",

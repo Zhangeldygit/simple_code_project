@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
-import '../../../generated/l10n.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
     Key? key,
     this.onChanged,
+    this.hintText
   }) : super(key: key);
 
   final ValueChanged<String>? onChanged;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class SearchField extends StatelessWidget {
               style: AppStyles.s16w400,
               cursorColor: AppColors.mainText,
               decoration: InputDecoration(
-                hintText: S.of(context).findPerson,
+                hintText: hintText,
                 hintStyle: AppStyles.s16w400.copyWith(
                   color: AppColors.neutral2,
                 ),

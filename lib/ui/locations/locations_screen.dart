@@ -25,6 +25,7 @@ class LocationsScreen extends StatelessWidget {
         body: Column(
           children: [
             SearchField(
+              hintText: S.of(context).findLocation,
               onChanged: (value) {
                 BlocProvider.of<BlocLocations>(context).add(
                   EventLocationsFilter(value),

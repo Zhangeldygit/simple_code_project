@@ -26,7 +26,7 @@ class _ListView extends StatelessWidget {
           },
         );
       },
-      separatorBuilder: (context, _) => const Divider(),
+      separatorBuilder: (context, _) => const Divider(height: 20),
     );
   }
 }
