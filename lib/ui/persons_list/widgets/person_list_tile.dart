@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
-import '../../../dto/person.dart';
+import '../../../dto/person/person.dart';
 import '../../../generated/l10n.dart';
 import '../../../widgets/user_avatar.dart';
 

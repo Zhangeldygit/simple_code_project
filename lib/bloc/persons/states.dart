@@ -1,7 +1,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../dto/person.dart';
+import '../../dto/person/person.dart';
 
 part 'states.freezed.dart';
 

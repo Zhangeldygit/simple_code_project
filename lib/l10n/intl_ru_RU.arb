@@ -46,12 +46,14 @@
 	"ok": "Ok",
 	"settings": "Настройки",
 	"locations": "Локации",
+	"episodes": "Эпизоды",
 	"persons": "Персонажи",
 	"man": "Человек",
 	"male": "Мужской",
 	"female": "Женский",
 	"personsListIsEmpty": "Персонажей не найдено",
 	"locationsListIsEmpty": "Локации не найдено",
+	"episodesListIsEmpty": "Эпизодов не найдено",
 	"somethingWentWrong": "Что-то пошло не так :-(",
 	"aired": "Aired"
 }

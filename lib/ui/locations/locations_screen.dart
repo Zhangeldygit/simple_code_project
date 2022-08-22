@@ -6,13 +6,12 @@ import '../../bloc/locations/states.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
 import '../../generated/l10n.dart';
-import '../../dto/location.dart';
+import '../../dto/location/location.dart';
 import '../../widgets/app_nav_bar.dart';
 import '../persons_list/widgets/search_field.dart';
 import 'widgets/location_details.dart';
 import 'widgets/location_list_tile.dart';
 part 'widgets/_list_view.dart';
-
 
 class LocationsScreen extends StatelessWidget {
   const LocationsScreen({Key? key}) : super(key: key);
@@ -33,6 +32,7 @@ class LocationsScreen extends StatelessWidget {
               },
             ),
             BlocBuilder<BlocLocations, StateBlocLocations>(
+              buildWhen: (previous, current) => previous != current,
               builder: (context, state) {
                 var locationsTotal = 0;
                 if (state is StateLocationsData) {
@@ -44,7 +44,10 @@ class LocationsScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          S.of(context).locationsTotal(locationsTotal).toUpperCase(),
+                          S
+                              .of(context)
+                              .locationsTotal(locationsTotal)
+                              .toUpperCase(),
                           style: AppStyles.s10w500.copyWith(
                             letterSpacing: 1.5,
                             color: AppColors.neutral2,
@@ -83,7 +86,7 @@ class LocationsScreen extends StatelessWidget {
                           return _ListView(locationsList: state.data);
                         }
                       },
-                      error : (state) {
+                      error: (state) {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -92,8 +95,7 @@ class LocationsScreen extends StatelessWidget {
                             ),
                           ],
                         );
-                      }
-                  );
+                      });
                 },
               ),
             ),

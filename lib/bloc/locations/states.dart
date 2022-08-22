@@ -1,7 +1,7 @@
 
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../dto/location.dart';
+import '../../dto/location/location.dart';
 part 'states.freezed.dart';
 
 @freezed

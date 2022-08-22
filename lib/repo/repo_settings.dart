@@ -16,4 +16,16 @@ class RepoSettings {
     if (prefs == null) return null;
     return prefs?.getString('locale');
   }
+
+  Future<bool?> signIn() async {
+    return prefs?.setBool('signIn', true);
+  }
+
+  Future<bool?> isAuthorized() async {
+    return prefs?.getBool('signIn');
+  }
+
+  Future<bool?> signOut() async {
+    return prefs?.setBool('signIn', false);
+  }
 }

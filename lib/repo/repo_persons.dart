@@ -2,7 +2,7 @@
 
 
 
-import '../dto/person.dart';
+import '../dto/person/person.dart';
 import '../generated/l10n.dart';
 import 'api.dart';
 

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_styles.dart';
-import '../../../dto/location.dart';
+import '../../../dto/location/location.dart';
 import '../../../generated/l10n.dart';
 
 class LocationListTile extends StatelessWidget {

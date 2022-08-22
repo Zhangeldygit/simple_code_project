@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_code_project/repo/repo_settings.dart';
 import 'package:simple_code_project/ui/login/login_screen.dart';
+import 'package:simple_code_project/ui/persons_list/persons_list_screen.dart';
 
 import '../constants/app_assets.dart';
 import '../generated/l10n.dart';
@@ -35,13 +36,15 @@ class _SplashScreenState extends State<SplashScreen> {
     repoSettings.init().whenComplete(() async {
       var defaultLocale = const Locale('ru', 'RU');
       final locale = await repoSettings.readLocale();
+      final isAuthorized = await repoSettings.isAuthorized() ?? false;
       if (locale == 'en') {
         defaultLocale = const Locale('en');
       }
       S.load(defaultLocale).whenComplete(() {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
+            builder: (context) =>
+                isAuthorized ? const PersonsListScreen() : const LoginScreen(),
           ),
         );
       });

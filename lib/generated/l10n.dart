@@ -320,6 +320,16 @@ class S {
     );
   }
 
+  /// `Episodes`
+  String get episodes {
+    return Intl.message(
+      'Episodes',
+      name: 'episodes',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Persons`
   String get persons {
     return Intl.message(
@@ -375,6 +385,16 @@ class S {
     return Intl.message(
       'No locations found',
       name: 'locationsListIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No episodes found`
+  String get episodesListIsEmpty {
+    return Intl.message(
+      'No episodes found',
+      name: 'episodesListIsEmpty',
       desc: '',
       args: [],
     );

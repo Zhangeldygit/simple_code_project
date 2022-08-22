@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
 import '../../generated/l10n.dart';
+import '../../repo/repo_settings.dart';
 import '../../widgets/app_alert_dialog.dart';
 import '../../widgets/app_button_styles.dart';
 import '../persons_list/persons_list_screen.dart';
@@ -78,17 +80,21 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: AppButtonStyles.elevated1,
                               child: Text(S.of(context).signIn),
                               onPressed: () {
-                                final isValidated = formKey.currentState?.validate() ?? false;
+                                final isValidated =
+                                    formKey.currentState?.validate() ?? false;
                                 if (isValidated) {
                                   FocusScope.of(context).unfocus();
                                   formKey.currentState?.save();
-                                  if (login == 'qwerty' && password == '123456ab') {
+                                  if (login == 'qwerty' &&
+                                      password == '123456ab') {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => const PersonsListScreen(),
+                                        builder: (context) =>
+                                            const PersonsListScreen(),
                                       ),
                                     );
+                                    context.read<RepoSettings>().signIn();
                                   } else {
                                     showDialog(
                                       context: context,
@@ -113,7 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
-                            child: Text('${S.of(context).dontHaveAnAccountHint}?'),
+                            child:
+                                Text('${S.of(context).dontHaveAnAccountHint}?'),
                           ),
                           TextButton(
                             style: AppButtonStyles.text1,

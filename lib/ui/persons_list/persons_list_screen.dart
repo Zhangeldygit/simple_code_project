@@ -5,7 +5,7 @@ import '../../bloc/persons/bloc_persons.dart';
 import '../../bloc/persons/states.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_styles.dart';
-import '../../dto/person.dart';
+import '../../dto/person/person.dart';
 import '../../generated/l10n.dart';
 import '../../widgets/app_nav_bar.dart';
 import 'widgets/person_grid_tile.dart';

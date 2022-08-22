@@ -1,7 +1,7 @@
 
 
 
-import '../dto/location.dart';
+import '../dto/location/location.dart';
 import '../generated/l10n.dart';
 import 'api.dart';
 

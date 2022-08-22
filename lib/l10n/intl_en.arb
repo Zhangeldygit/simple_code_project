@@ -46,12 +46,14 @@
 	"ok": "Ok",
 	"settings": "Settings",
 	"locations": "Locations",
+	"episodes": "Episodes",
 	"persons": "Persons",
 	"man": "Man",
 	"male": "Male",
 	"female": "Female",
 	"personsListIsEmpty": "No persons found",
 	"locationsListIsEmpty": "No locations found",
+	"episodesListIsEmpty": "No episodes found",
 	"somethingWentWrong": "Something went wrong :-(",
 	"aired": "Премьера"
 }

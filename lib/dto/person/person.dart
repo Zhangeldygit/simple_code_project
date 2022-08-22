@@ -1,4 +1,4 @@
-import 'location.dart';
+import '../location/location.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'person.freezed.dart';
 part 'person.g.dart';

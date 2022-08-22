@@ -39,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontHaveAnAccountHint":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account yet"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "episodes": MessageLookupByLibrary.simpleMessage("Episodes"),
+        "episodesListIsEmpty":
+            MessageLookupByLibrary.simpleMessage("No episodes found"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "findLocation": MessageLookupByLibrary.simpleMessage("Find a location"),

@@ -5,6 +5,7 @@ import 'package:simple_code_project/constants/app_colors.dart';
 
 import '../constants/app_assets.dart';
 import '../generated/l10n.dart';
+import '../ui/episodes/episodes_screen.dart';
 import '../ui/locations/locations_screen.dart';
 import '../ui/persons_list/persons_list_screen.dart';
 import '../ui/settings_screen.dart';
@@ -29,6 +30,7 @@ class AppNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       currentIndex: current,
       selectedItemColor: AppColors.primary,
       unselectedItemColor: AppColors.neutral3,
@@ -45,6 +47,10 @@ class AppNavBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: const Icon(Icons.share_location_sharp),
           label: S.of(context).locations,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.tv),
+          label: S.of(context).episodes,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.settings_outlined),
@@ -64,8 +70,13 @@ class AppNavBar extends StatelessWidget {
           );
         } else if (index == 2) {
           Navigator.of(context).pushAndRemoveUntil(
-            _createRoute(const SettingsScreen()),
+            _createRoute(const EpisodesScreen()),
             (route) => false,
+          );
+        } else if (index == 3) {
+          Navigator.of(context).pushAndRemoveUntil(
+            _createRoute(const SettingsScreen()),
+                (route) => false,
           );
         }
       },
