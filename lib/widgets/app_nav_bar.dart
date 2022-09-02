@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:simple_code_project/constants/app_colors.dart';
@@ -66,7 +65,7 @@ class AppNavBar extends StatelessWidget {
         } else if (index == 1) {
           Navigator.of(context).pushAndRemoveUntil(
             _createRoute(const LocationsScreen()),
-                (route) => false,
+            (route) => false,
           );
         } else if (index == 2) {
           Navigator.of(context).pushAndRemoveUntil(
@@ -76,7 +75,7 @@ class AppNavBar extends StatelessWidget {
         } else if (index == 3) {
           Navigator.of(context).pushAndRemoveUntil(
             _createRoute(const SettingsScreen()),
-                (route) => false,
+            (route) => false,
           );
         }
       },
